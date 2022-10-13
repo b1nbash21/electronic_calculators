@@ -1,6 +1,6 @@
-import {CalculatorDto} from "../../../models/CalculatorDto.model"
+import {CalculatorInterface} from "../../../models/CalculatorInterface.model"
 
-export const calculators: CalculatorDto[] = [
+export const calculators: CalculatorInterface[] = [
 	{
 		name: 'Instrumentation Amplifier',
 		imagePath: '/calculatorIcons/resistor.png',

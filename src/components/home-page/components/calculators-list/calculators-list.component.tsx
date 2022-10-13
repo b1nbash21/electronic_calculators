@@ -2,7 +2,7 @@ import { calculators } from '../../calculatorsDefinition/calculators';
 import Grid from "@mui/material/Grid"
 import ItemCardComponent from '../item-card/item-card.componet';
 import { useEffect, useState } from 'react';
-import { CalculatorDto } from '../../../../models/CalculatorDto.model';
+import { CalculatorInterface } from '../../../../models/CalculatorInterface.model';
 
 interface SearchCriteriaInterface {
     searchCriteria: string
@@ -10,7 +10,7 @@ interface SearchCriteriaInterface {
 
 const CalculatorsListComponent = ({ searchCriteria }: SearchCriteriaInterface) => {
 
-    const [targetCalculators, setTargetCalculators] = useState<CalculatorDto[]>(calculators);
+    const [targetCalculators, setTargetCalculators] = useState<CalculatorInterface[]>(calculators);
 
     useEffect(() => {
         let targets = calculators;

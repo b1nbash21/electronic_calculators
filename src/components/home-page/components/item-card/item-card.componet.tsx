@@ -6,16 +6,15 @@ import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import { CalculatorDto } from "../../../../models/CalculatorDto.model";
+import { CalculatorInterface } from "../../../../models/CalculatorInterface.model";
 
 import styles from "./item-card.component.module.scss"
 
 interface calculatorProps {
-    calculator: CalculatorDto
+    calculator: CalculatorInterface
 }
 
 const ItemCardComponent = ({ calculator }: calculatorProps) => {
-
     return (
         <>
             <Paper elevation={10} className={styles.paper}>
@@ -33,7 +32,7 @@ const ItemCardComponent = ({ calculator }: calculatorProps) => {
                             </Typography>
                         </div>
                         <Stack direction="row" spacing={1}>
-                            {calculator.tags.map((tag, index) => {
+                            {calculator.tags.map((tag: string, index: number) => {
                                 return (
                                     <Chip key={index} label={tag} size="small" />
                                 )

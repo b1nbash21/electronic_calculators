@@ -1,4 +1,4 @@
-export interface CalculatorDto {
+export interface CalculatorInterface {
     name: string;
     path: string;
     imagePath: string;
