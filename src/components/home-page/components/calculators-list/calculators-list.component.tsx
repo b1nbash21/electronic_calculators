@@ -1,4 +1,4 @@
-import { calculators } from '../../calculatorsDefinition/calculators';
+import { calculators } from '../../../../data/calculators';
 import Grid from "@mui/material/Grid"
 import ItemCardComponent from '../item-card/item-card.componet';
 import { useEffect, useState } from 'react';
