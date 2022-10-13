@@ -1,0 +1,13 @@
+.wrapper {
+    display: block;
+    max-width: 70%;
+    margin: 250px auto 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#searchBoxInput {
+    width: 600px;
+    font-size: 24px;
+}

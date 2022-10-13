@@ -1,8 +1,8 @@
+import HomePageComponent from "../../components/home-page/home-page.component";
+
 const HomePage = () => {
     return(
-        <div>
-            <h1>Electronic Calculators</h1>
-        </div>
+        <HomePageComponent />
     )
 }
 
