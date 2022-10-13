@@ -33,7 +33,6 @@ const CalculatorsListComponent = ({ searchCriteria }: SearchCriteriaInterface) =
                 })
                 }
             </Grid>
-            <h1>{searchCriteria}</h1>
         </>
     );
 };
