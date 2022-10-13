@@ -7,14 +7,20 @@ import Typography from "@mui/material/Typography"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import { CalculatorInterface } from "../../../../models/CalculatorInterface.model";
-
 import styles from "./item-card.component.module.scss"
+import { useNavigate } from "react-router-dom"
 
 interface calculatorProps {
     calculator: CalculatorInterface
 }
 
 const ItemCardComponent = ({ calculator }: calculatorProps) => {
+    const navigate = useNavigate()
+
+    const navigateToCalculator = (calculatorName: string) => {
+        navigate("/calculator/" + calculatorName, { state: calculatorName })
+    }
+
     return (
         <>
             <Paper elevation={10} className={styles.paper}>
@@ -43,12 +49,12 @@ const ItemCardComponent = ({ calculator }: calculatorProps) => {
                 <div className={styles.hoverMenu}>
                     <Grid container className={styles.centerItem}>
                         <Grid item xs={6} className={styles.centerItem}>
-                        <Button variant="contained" endIcon={<BookmarkBorderIcon />}>
+                            <Button variant="contained" endIcon={<BookmarkBorderIcon />}>
                                 Bookmark
                             </Button>
                         </Grid>
                         <Grid item xs={6} className={styles.centerItem}>
-                            <Button variant="contained" endIcon={<ArrowForwardIosIcon />}>
+                            <Button onClick={() => { navigateToCalculator(calculator.name) }} variant="contained" endIcon={<ArrowForwardIosIcon />}>
                                 Calculator
                             </Button>
                         </Grid>
