@@ -17,8 +17,8 @@ interface calculatorProps {
 const ItemCardComponent = ({ calculator }: calculatorProps) => {
     const navigate = useNavigate()
 
-    const navigateToCalculator = (calculatorName: string) => {
-        navigate("/calculator/" + calculatorName, { state: calculatorName })
+    const navigateToCalculator = (calculatorPath: string) => {
+        navigate("/calculator/" + calculatorPath, { state: calculatorPath })
     }
 
     return (
@@ -54,7 +54,7 @@ const ItemCardComponent = ({ calculator }: calculatorProps) => {
                             </Button>
                         </Grid>
                         <Grid item xs={6} className={styles.centerItem}>
-                            <Button onClick={() => { navigateToCalculator(calculator.name) }} variant="contained" endIcon={<ArrowForwardIosIcon />}>
+                            <Button onClick={() => { navigateToCalculator(calculator.path) }} variant="contained" endIcon={<ArrowForwardIosIcon />}>
                                 Calculator
                             </Button>
                         </Grid>
