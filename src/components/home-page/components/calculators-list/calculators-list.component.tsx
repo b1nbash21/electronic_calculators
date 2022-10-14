@@ -26,7 +26,7 @@ const CalculatorsListComponent = ({ searchCriteria }: SearchCriteriaInterface) =
             <Grid container>
                 {targetCalculators.map((calculator, index) => {
                     return (
-                        <Grid item xs={4} style={{marginBottom: "24px"}}>
+                        <Grid key={index} item xs={4} style={{marginBottom: "24px"}}>
                             <ItemCardComponent calculator={calculator} />
                         </Grid>
                     )
