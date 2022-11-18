@@ -1,4 +1,5 @@
 export interface CalculatorInterface {
+    id: string;
     name: string;
     path: string;
     imagePath: string;

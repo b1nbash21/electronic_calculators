@@ -8,6 +8,7 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="/calculator/:calculatorName" element={<CalculatorPage />} />
+				<Route path="*" element={<h1>404</h1>} />
 			</Routes>
 		</Router>
 	);

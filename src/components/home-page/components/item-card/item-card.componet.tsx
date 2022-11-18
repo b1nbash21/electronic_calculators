@@ -6,16 +6,19 @@ import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { CalculatorInterface } from "../../../../models/CalculatorInterface.model";
 import styles from "./item-card.component.module.scss"
 import { useNavigate } from "react-router-dom"
 
-interface calculatorProps {
+interface ItemCardComponentProps {
     calculator: CalculatorInterface
+    isBookmarked: boolean,
+    toggleBookmark: (calculatorId: string) => void;
 }
 
-const ItemCardComponent = ({ calculator }: calculatorProps) => {
-    const navigate = useNavigate()
+const ItemCardComponent = ({ calculator, isBookmarked,  toggleBookmark}: ItemCardComponentProps) => {
+    const navigate = useNavigate();
 
     const navigateToCalculator = (calculatorPath: string) => {
         navigate("/calculator/" + calculatorPath, { state: calculatorPath })
@@ -49,7 +52,7 @@ const ItemCardComponent = ({ calculator }: calculatorProps) => {
                 <div className={styles.hoverMenu}>
                     <Grid container className={styles.centerItem}>
                         <Grid item xs={6} className={styles.centerItem}>
-                            <Button variant="contained" endIcon={<BookmarkBorderIcon />}>
+                            <Button onClick={() => { toggleBookmark(calculator.id) }} variant="contained" endIcon={isBookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon /> }>
                                 Bookmark
                             </Button>
                         </Grid>

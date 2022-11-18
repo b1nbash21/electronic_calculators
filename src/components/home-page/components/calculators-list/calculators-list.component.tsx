@@ -1,33 +1,24 @@
-import { calculators } from '../../../../data/calculators';
 import Grid from "@mui/material/Grid"
 import ItemCardComponent from '../item-card/item-card.componet';
 import { useEffect, useState } from 'react';
 import { CalculatorInterface } from '../../../../models/CalculatorInterface.model';
+import { BookmarkServices } from "../../../../services/BookmarkService";
 
-interface SearchCriteriaInterface {
-    searchCriteria: string
+interface CalculatorsListComponentInterface {
+    toggleBookmark: (calculatorId: string) => void,
+    calculators: CalculatorInterface[],
+    bookmarkedCalculators: string[]
 }
 
-const CalculatorsListComponent = ({ searchCriteria }: SearchCriteriaInterface) => {
-
-    const [targetCalculators, setTargetCalculators] = useState<CalculatorInterface[]>(calculators);
-
-    useEffect(() => {
-        let targets = calculators;
-
-        if (searchCriteria !== "")
-            targets = calculators.filter(calculator => calculator.name.toLocaleLowerCase().includes(searchCriteria));
-
-        setTargetCalculators(targets);
-    }, [searchCriteria]);   
+const CalculatorsListComponent = ({ toggleBookmark, calculators, bookmarkedCalculators }: CalculatorsListComponentInterface) => {
 
     return (
         <>
             <Grid container>
-                {targetCalculators.map((calculator, index) => {
+                {calculators.map((calculator, index) => {
                     return (
                         <Grid key={index} item xs={4} style={{marginBottom: "24px"}}>
-                            <ItemCardComponent calculator={calculator} />
+                            <ItemCardComponent calculator={calculator} isBookmarked={bookmarkedCalculators?.includes(calculator.id)} toggleBookmark={toggleBookmark}/>
                         </Grid>
                     )
                 })
